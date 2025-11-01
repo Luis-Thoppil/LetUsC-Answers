@@ -1,0 +1,1 @@
+This is a folder with all the excercises I've done from the book LetUsC 21st edition. This is intended to be an answer bank for anyone who wants to see it. Enjoy!
