@@ -44,7 +44,11 @@ int addbook() {
     int i;
     static int count = 0;
     char cont;
-    for (i = 0;i < 20; i++) {
+    if (count >= 20) {
+        printf("No more space! Maximum 20 books allowed.\n");
+        return count;
+    }
+    for (i = count;i < 20; i++) {
         count++;
         lib[i].ascnum = count;
 
@@ -66,12 +70,15 @@ int addbook() {
         printf("Continue? (y/n): ");
         scanf("%c", &cont);
         while ((ch = getchar()) != '\n' && ch != EOF);
-        
         if (cont == 'N' || cont == 'n') {
-            return i + 1;  // Return the number of employees entered
+            break;
+        }
+        if (count >= 20) {
+            printf("Maximum number of books (20) reached!\n");
+            break;
         }
     }
-
+    return count;
 }
 
 void displaylist(int numb) {
